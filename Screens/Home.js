@@ -20,7 +20,7 @@ function Home({navigation})
     const [loading, setLoading] = useState(true)
     const handlePress = (item) =>
     {
-        navigation.navigate("SinglePage", item )
+        navigation.navigate("SinglePage", item, {data:data} )
     }
   const loadData = () =>
   {
