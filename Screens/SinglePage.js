@@ -38,11 +38,13 @@ const SinglePage = ({navigation, route, item}) =>
                                 <Card.Cover source={{ uri: 'https://easy-apartment14.herokuapp.com' + apartment_img5 }} style={{width:'45%', marginTop:20, marginRight:'10%'}} />
                                 <Card.Cover source={{ uri: 'https://easy-apartment14.herokuapp.com' + apartment_img4 }} style={{width:'45%', marginTop:20, marginBottom:20}} />
                             </View>
-                            <Paragraph style={{ fontSize: 20, fontWeight:'400', paddingTop:10, textAlign:'center' }}>Book This Appartment for ${ apartment_price}</Paragraph> 
+                            <Paragraph style={{ fontSize: 20, fontWeight:'400', paddingTop:10, textAlign:'center', marginBottom:20 }}>Book This Appartment for ${ apartment_price}</Paragraph> 
                         </Card.Content>
+                            <Divider />
+
 
                         <Card.Actions>
-                            <Button onPress={()=> navigation.navigate('ViewScreen')}>Continue to website</Button>
+                            <Button onPress={()=> navigation.navigate('ViewScreen')} style={{padding: 10}}>Continue to website</Button>
                         </Card.Actions>
                         
                     </Card>
