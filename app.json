@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "my-app",
+    "name": "Easy-Accomodation-Service",
     "slug": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./images/logo1.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
