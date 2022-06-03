@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
 import { Alert } from "react-native";
-import imageList from '../components/imageList';
+import SinglePage from '../Screens/SinglePage'
 
 
 function Home({navigation})
 {
-    
     const [visible, setVisible] = useState(false);
     const ActivityIndicatorElement = () =>
     {
@@ -21,7 +20,7 @@ function Home({navigation})
     const [loading, setLoading] = useState(true)
     const handlePress = (item) =>
     {
-        navigation.navigate("ViewScreen", item )
+        navigation.navigate("SinglePage", item )
     }
   const loadData = () =>
   {
@@ -50,24 +49,26 @@ function Home({navigation})
   const renderData = (item) =>
   {
       return (
-      <TouchableWithoutFeedback onPress={()=> handlePress(item)}>  
+          <TouchableWithoutFeedback onPress={()=> handlePress(item)}>  
       <View style={styles.cardDesign}>
-            <View style={{height: 250, alignContent: 'center'}}>
+                  <View style={{ height: 250 }}>
+                      
                       <Image
-                          source={{uri:'https://easy-apartment14.herokuapp.com/media/images/apartments/the-anam-_twiIcIsp2s-unsplash.jpg'}}
-                        style={{
-                      resizeMode: 'contain',
-                      width: "100%",
-                      maxHeight: "100%"
-                      }}
-                    />
+                          source={{
+                              uri: 'https://easy-apartment14.herokuapp.com' + item.apartment_img1
+                          }}
+                          style={{resizeMode:'cover',height:'100%',maxWidth:'100%', width:280}}
+                      />
+                      
                   {visible ? <ActivityIndicatorElement /> : null}
             </View>
             <Text style={{padding: 10, textTransform:'capitalize'}}>{item.apartment_location}</Text>
                   <Text style={{textTransform:'capitalize'}}>{item.apartment_describ}</Text>
                   <View style={{justifyContent:'flex-end', backgroundColor:'#4599E7', marginTop:5}}>
-                    <Text style={{padding: 10}}>$ {item.apartment_price}</Text>
+                      <Text style={{ padding: 10 }}>$ {item.apartment_price}</Text>
+                      
                   </View>
+            
                   <StatusBar style="auto" />
         </View>
         </TouchableWithoutFeedback>
@@ -84,7 +85,7 @@ function Home({navigation})
           // paddingBottom: 1,
         }}
         numColumns={2}
-        data={data}
+              data={data}
         renderItem={({ item }) =>
         {
           return renderData(item)

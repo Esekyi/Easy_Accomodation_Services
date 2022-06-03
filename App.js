@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import Home from './Screens/Home';
 import ViewScreen from './Screens/ViewScreen';
 import OnboardingScreen from './Screens/OnboardingScreen';
+import SinglePage from './Screens/SinglePage';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -49,8 +50,19 @@ const App = () =>
               />
               )
             }
-            <Stack.Screen name = "Home" component={Home} options={{title: "Easy Accomodation Services"}} />
-            <Stack.Screen name = "ViewScreen" component={ViewScreen} />
+            <Stack.Screen name="Home" component={Home} options={{
+              title: "Easy Accomodation Services",
+              headerStyle: { backgroundColor: '#4599E7' },
+              headerTitleStyle: { fontWeight: 'bold' },
+              headerTintColor: 'white'
+            }} />
+            <Stack.Screen name = "ViewScreen" component={ViewScreen} options={{title: "HomePage"}} />
+            <Stack.Screen name = "SinglePage" component={SinglePage} options={{
+              title: "Apartment Details",
+              headerStyle: { backgroundColor: '#4599E7' },
+              headerTitleStyle: { fontWeight: 'bold' },
+              headerTintColor: 'white'
+            }} />
           </Stack.Navigator>
 
           </NavigationContainer>
